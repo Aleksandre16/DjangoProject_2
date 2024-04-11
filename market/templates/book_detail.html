@@ -1,0 +1,26 @@
+<!-- book_detail.html -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ book.title }}</title>
+</head>
+<body>
+    <h1>{{ book.title }}</h1>
+    <div>
+        <h2>Author: {{ book.author }}</h2>
+        <p>Price: {{ book.price }}</p>
+        <p>Page Count: {{ book.page_count }}</p>
+        <!-- Check if the book has an associated image -->
+        {% if book.image %}
+            <img src="{{ book.image.url }}" alt="{{ book.title }}">
+        {% else %}
+            <p>No image available</p>
+        {% endif %}
+        <!-- Add any other book details you want to display -->
+    </div>
+    <a href="{% url 'get_listedbooks' %}">Back to Book List</a>
+</body>
+</html>
